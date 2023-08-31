@@ -1,23 +1,28 @@
 package oblig1;
 
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
 public class Oppg1b {
 
 	public static void main(String[] args) {
-		
-		public static int beregn(int a, int b, ??) {
-			...
-		}
-		
-		//summen av 12 og 13
-		int sum = beregn(23, 13, summerFunksjon);
-		
-		//den største av -5 og 3
-		
-		//Avstanden (absoluttverdien av differansen) mellom 54 of 45
 
 		
+		List<String> listen = Arrays.asList("10", "1", "20", "110", "21", "12");
 		
-		//BiFunction?
+		//Lambda utrykk som sorterer listen ved bruk av en comparator
+		Collections.sort(listen, (s1, s2) -> {
+			
+			int int1 = Integer.parseInt(s1);
+			int int2 = Integer.parseInt(s2);
+			return Integer.compare(int1, int2);
+		});
+		
+		//Går gjennom den nye sortere listen, og printer ut tallene i stigende rekkefølge.
+		for (String s : listen) {
+			System.out.print(s + " ");
+		}
 	}
 
 }
