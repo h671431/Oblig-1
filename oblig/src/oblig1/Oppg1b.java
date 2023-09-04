@@ -3,26 +3,29 @@ package oblig1;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.function.BiFunction;
 
 public class Oppg1b {
 
+public static int beregn(int a, int b, BiFunction<Integer, Integer, Integer> funksjon) {
+		
+		return funksjon.apply(a, b);
+		
+	} 
+	
 	public static void main(String[] args) {
-
 		
-		List<String> listen = Arrays.asList("10", "1", "20", "110", "21", "12");
+		BiFunction<Integer, Integer, Integer> sumFunksjon = (a, b) -> a + b;
+		BiFunction<Integer, Integer, Integer> maxFunksjon = (a, b) -> Math.max(a, b);
+		BiFunction<Integer, Integer, Integer> absFunksjon = (a, b) -> Math.abs(a - b);
 		
-		//Lambda utrykk som sorterer listen ved bruk av en comparator
-		Collections.sort(listen, (s1, s2) -> {
-			
-			int int1 = Integer.parseInt(s1);
-			int int2 = Integer.parseInt(s2);
-			return Integer.compare(int1, int2);
-		});
+		int sum = beregn(12, 13, sumFunksjon);
+		int max = beregn(-5, 3, maxFunksjon);
+		int abs = beregn(54, 45, absFunksjon);
 		
-		//Går gjennom den nye sortere listen, og printer ut tallene i stigende rekkefølge.
-		for (String s : listen) {
-			System.out.print(s + " ");
-		}
+		System.out.println("Summen av 12 + 13 = " + sum);
+		System.out.println("Høyeste verdi mellom -5 og 3 = " + max);
+		System.out.println("Avstanden mellom 54 og 45 = " + abs);
 	}
 
 }
