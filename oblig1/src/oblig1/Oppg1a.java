@@ -11,12 +11,21 @@ public class Oppg1a {
 		
 		//comparator??
 		
-		Collections.sort(listen);
+Collections.sort(listen, (s1, s2) -> {
+			
+			int int1 = Integer.parseInt(s1);
+			int int2 = Integer.parseInt(s2);
+			return Integer.compare(int1, int2);
+		});
 		
-		System.out.println(listen);
+		//Går gjennom den nye sortere listen, og printer ut tallene i stigende rekkefølge.
+		for (String s : listen) {
+			System.out.print(s + " ");
 	
 	}
 	
 	
 }
+}
+
 	
